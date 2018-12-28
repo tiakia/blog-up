@@ -1,0 +1,20 @@
+测试图片1:
+  full_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_1.jpg'
+  thumb_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_1.jpg'
+  descr: "图片的描述信息"
+测试图片2:
+  full_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_2.jpg'
+  thumb_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_2.jpg'
+  descr: "图片的描述信息"
+测试图片3:
+  full_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_3.jpg'
+  thumb_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_3.jpg'
+  descr: "图片的描述信息"
+测试图片4:
+  full_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_4.jpg'
+  thumb_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_4.jpg'
+  descr: "图片的描述信息"
+测试图片5:
+  full_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_5.jpg'
+  thumb_link: 'http://pkafgcch8.bkt.clouddn.com/gallery/gallery_5.jpg'
+  descr: "图片的描述信息"

@@ -1,0 +1,111 @@
+* 修改的配置
+** 垃圾回收机制修改
+   - purcell的老是报错 就参考了 spacemacs 的配置
+   #+BEGIN_SRC Elisp
+     (setq gc-cons-threshold 100000000)
+   #+END_SRC
+** 设置中文环境,日期正常显示
+#+BEGIN_SRC Elisp
+(set-language-environment 'Chinese-GBK)
+(prefer-coding-system 'utf-8-unix)
+#+END_SRC
+** 设置启动时的大小及位置
+#+BEGIN_SRC Elisp
+;;设置窗口位置为屏库左上角(0,0)
+(set-frame-position (selected-frame) 0 0)
+
+(set-frame-width (selected-frame) 110)
+(set-frame-height (selected-frame) 33)
+#+END_SRC
+** ivy 搜索到时候取消显示匹配的数字
+#+BEGIN_SRC Elisp
+ivy-count-format ""
+#+END_SRC
+** mode-line 自定义显示
+** 增加`yasnippet`模板
+** 增加全局搜索差价 `ag`
+** 增加中文输入法 `pyim`
+** 增加`web-mode`支持jsx/js/css/html...
+** 改变emacs的透明度
+   - 类似 mac 下的效果
+   - init-alph.el
+**** 具体的配置见[[https://www.github.com/tiakia/.emacs.d][My GitHub]]
+* Org-mode 的使用
+
+* Learn key-map
+  - tap: show/hide 展示/隐藏 一级标题下的其他item
+  - C-c & C-l : add link
+  - C-c & C-o : open the Link
+
+* Outliner
+Text text text
+** Part 1
+   Instroducting the series and setting up the package manager
+   - Show melpa
+   - set up the melpa
+** Installing some packages
+   - installed use-package
+   - installed try
+   - installed which-key
+
+* Links
+  - [[http://www.tiankai.party][Here's my Blog]]
+
+* Markup Some text
+*bold text*,
+/italic text/,
+_underlined text_,
++strikethrough line+,
+=verbatim=
+
+* Table use Tab to enter
+| Name   | Age | Occupation    |
+|--------+-----+---------------|
+| Allen  |  15 | Teacher       |
+| Clyve  |  34 | Office-worker |
+| Barney |  65 | Worker        |
+|--------+-----+---------------|
+使用 tab 来输入 自动对齐自动添加
+* Export to other formate
+C-c & C-e 选择一个模板导出(h - o)
+
+#+STARTUP: overview
+#+TITLE: org-lesson
+#+OPTIONS: toc:nil
+#+CREATOR: Tiankai
+
+**** toc:nil 忽略导航
+
+* Source Code
+  - <s & tab  生成代码块,填写mode
+  - C-c & '   到相应的mode编写代码,编写完成后 _(C-c & ')_ 返回
+#+BEGIN_SRC javascript
+  function add(x, y){
+    return x + y
+  }
+
+  let sum = add(3,4);
+#+END_SRC
+
+* LaTex integration
+
+- Characters: \alpha \rightarrow \beta
+- $0(n \log n)$
+
+\begin{align*}
+ 3*2 + &= 6 + 1 \\
+       &=7
+\end{align*}
+
+* Todo stuff!
+** DONE cycle through states
+   CLOSED: [2018-06-06 Wed 16:24]
+** NEXT explain todo lists
+   DEADLINE: <2018-06-07 Thu>
+** NEXT 写周报
+   DEADLINE: <2018-06-08 Fri>
+
+- C-c & C-t 来改变当前事项是完成还是未完成
+- shift & 上/下/左/右 可以调整时间
+- C-c & C-d 调出日历选择日期
+- C-c & a & L 显示所有待做事情

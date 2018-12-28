@@ -1,0 +1,119 @@
+# ===========================================
+# Site Information Settings
+# ===========================================
+
+# Site creation time
+since: 2017
+
+# Custom your favicon.ico in `site/source`
+favicon: /favicon.ico
+
+# Set feed link (false | default | your feed link)
+# false: disable
+# default: use `atom.xml`, generator for `hexo-generator-feed`
+rss: default
+
+# ===========================================
+# Menu Settings
+# ===========================================
+menu:
+  Home: /
+  Archives: /archives/
+  Tags: /tags
+  Categories: /categories
+  About: /about
+
+# ===========================================
+# Theme Settings
+# ===========================================
+# color: default | mint green | cobalt blue | hot pink | dark violet
+color: default
+
+# default page mode: default | archives
+mode: default
+
+toc: true
+
+# jQuery fancybox
+fancybox: true
+
+pjax: true
+
+copyright:
+  enable: true
+  # https://creativecommons.org/
+  license: '<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>'
+
+reward:
+  enable: true
+  qrCode:
+    wechat: /imgs/wechat.jpg
+    alipay: /imgs/ali.jpg
+
+# ===========================================
+# Social links Settings
+# ===========================================
+social:
+  email: tiankai0426@gmail.com
+  stack-overflow:
+  twitter:
+  facebook:
+  linkedin:
+  google:
+  github: https://github.com/tiakia
+  weibo:
+  zhihu:
+  douban:
+  pocket:
+  tumblr:
+  instagram:
+
+# ===========================================
+# Third Party Services Settings
+# ===========================================
+
+# LeanCloud
+leancloud:
+  app_id: APUSn00FXLoznLkguOHkVcM5-gzGzoHsz
+  app_key: CgbpSHg5AJ62DOSsKHts1uph
+
+# Baidu Analytics
+baidu_analytics: 661158ab1e0fccea66251d60f7dae96a
+# Baidu Verification
+baidu_verification:
+
+# Google Analytics
+google_analytics:
+# Google Verification
+google_verification:
+
+# Disqus
+disqus_shortname:
+
+#Changyan
+changyan:
+  appid:
+  appkey:
+
+#LiveRe
+livere_datauid: false
+
+#GitTalk
+
+gitalk:
+  # Switch
+  enable: true
+  # Your Github ID (Github username):
+  github_id: tiakia
+  # The repo to store comments:
+  repo: "tiakiaBlogComment"
+  oauth:
+    # Your client ID:
+    client_id: "d45abc7a6db571b50af9"
+    # Your client secret:
+    client_secret: "15ab54f8f528045cdf07d8dbb2d4c0faa69f9462"
+
+# ===========================================
+# Version
+# ===========================================
+version: 2.10.1
