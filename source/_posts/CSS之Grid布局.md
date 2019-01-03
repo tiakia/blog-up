@@ -1,11 +1,13 @@
 ---
 title: CSS之Grid布局笔记
-tags: [grid]
-date: 2017-09-28 15:36:03
+tags:
+  - grid
 categories: css
 description: css的grid布局初探
-thumbnail:
 keywords: grid
+abbrlink: 35836
+date: 2017-09-28 15:36:03
+thumbnail:
 ---
 
 这是我学习 css grid 布局的笔记，我是通过 MDN 和掘金的一篇文章学习的，文章链接会放在文末，学习的最佳路径就是练习，把 MDN 的例子代码敲一遍，然后再一个个的改变属性观察变化，如果不懂的去掘金那个文章里面找，这样可以快速的掌握 grid 布局。
@@ -22,7 +24,7 @@ keywords: grid
 
 ##### <font color=#f50> grid-gap: 10px 15px;</font>
 
-定义每个子元素竖直方向之间分割线为 10px,横向之间的分割线为 15px,相当于 margin:10px 15px，但是只作用于容器内部。
+定义每个子元素竖直方向之间分割线为 `10px`,横向之间的分割线为 `15px`,相当于 `margin:10px 15px`，但是只作用于容器内部。
 
 ##### <font color=#f50>grid-template-columns: </font>
 
@@ -78,35 +80,36 @@ keywords: grid
 
 ##### <font color=#f50> grid-template-areas:</font>
 
-```
-    #page{
-      display: grid;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      width: 100%;
-      height: 250px;
-      grid-template-areas: "head head"
-                           "nav main"
-                           "nav foot";
-      grid-template-rows: 50px 1fr 30px;
-      grid-template-columns: 150px 1fr;
-    }
-    #page header{
-      grid-area: head;
-      background-color: #8ca0ff;
-    }
-    #page nav{
-      grid-area: nav;
-      background-color: #ffa08c;
-    }
-    #page main{
-      grid-area: main;
-      background-color: #ffff64;
-    }
-    #page footer{
-      grid-area: foot;
-      background-color: #8cffa0;
-    }
+```css
+#page {
+  display: grid;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 250px;
+  grid-template-areas:
+    "head head"
+    "nav main"
+    "nav foot";
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 150px 1fr;
+}
+#page header {
+  grid-area: head;
+  background-color: #8ca0ff;
+}
+#page nav {
+  grid-area: nav;
+  background-color: #ffa08c;
+}
+#page main {
+  grid-area: main;
+  background-color: #ffff64;
+}
+#page footer {
+  grid-area: foot;
+  background-color: #8cffa0;
+}
 ```
 
 - area 的数量每行个数必须一样
@@ -128,8 +131,7 @@ keywords: grid
 自动生成隐式网格轨道(列和行),
 你定位网格项超出网格容器范围时，将自动创建隐式网格轨道
 
-```
-eg:
+```css
     .container{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -145,9 +147,9 @@ eg:
         占据一个行单位
 ```
 
-> 代码
+完整代码
 
-```
+```html
 <!doctype html>
 <html>
   <head>
@@ -155,79 +157,79 @@ eg:
     <meta charset="utf-8"/>
     <style>
       .container{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 10px;
-      grid-auto-rows: minmax(100px, auto);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 10px;
+          grid-auto-rows: minmax(100px, auto);
       }
       .container>div{
-      background:orange;
-      border: 1px solid red;
-      border-radius: 5px;
-      opacity: .6;
+          background:orange;
+          border: 1px solid red;
+          border-radius: 5px;
+          opacity: .6;
       }
       .one{
-      grid-column: 1/3;
-      grid-row: 1;
+          grid-column: 1/3;
+          grid-row: 1;
       }
       .two{
-      grid-column: 2/4;
-      grid-row: 1/3;
+          grid-column: 2/4;
+          grid-row: 1/3;
       }
       .three{
-      grid-column: 1;
-      grid-row: 2/5;
+          grid-column: 1;
+          grid-row: 2/5;
       }
       .four{
-      grid-column: 3;
-      grid-row: 3;
+          grid-column: 3;
+          grid-row: 3;
       }
       .five{
-      grid-column: 2;
-      grid-row: 4;
+          grid-column: 2;
+          grid-row: 4;
       }
       .six{
-      grid-column: 3;
-      grid-row: 4;
+          grid-column: 3;
+          grid-row: 4;
       }
       #grid{
-      display: grid;
-      width: 100%;
-      margin-top: 100px;
-      grid-template-columns: minmax(100px, max-content) repeat(auto-fill, 200px) 50%;
-      grid-template-rows: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;
+          display: grid;
+          width: 100%;
+          margin-top: 100px;
+          grid-template-columns: minmax(100px, max-content) repeat(auto-fill, 200px) 50%;
+          grid-template-rows: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;
       }
       .areaA{
-      background-color: #999;
-      border: 1px solid #000;
+          background-color: #999;
+          border: 1px solid #000;
       }
       #page{
-      display: grid;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      width: 100%;
-      height: 250px;
-      grid-template-areas: "head head"
-                           "nav main"
-                           "nav foot";
-      grid-template-rows: 50px 1fr 30px;
-      grid-template-columns: 150px 1fr;
+          display: grid;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          width: 100%;
+          height: 250px;
+          grid-template-areas: "head head"
+                               "nav main"
+                               "nav foot";
+          grid-template-rows: 50px 1fr 30px;
+          grid-template-columns: 150px 1fr;
       }
       #page header{
-      grid-area: head;
-      background-color: #8ca0ff;
+          grid-area: head;
+          background-color: #8ca0ff;
       }
       #page nav{
-      grid-area: nav;
-      background-color: #ffa08c;
+          grid-area: nav;
+          background-color: #ffa08c;
       }
       #page main{
-      grid-area: main;
-      background-color: #ffff64;
+          grid-area: main;
+          background-color: #ffff64;
       }
       #page footer{
-      grid-area: foot;
-      background-color: #8cffa0;
+          grid-area: foot;
+          background-color: #8cffa0;
       }
     </style>
   </head>
@@ -262,14 +264,15 @@ eg:
     </div>
   </body>
 </html>
-
 ```
 
 > 页面
 
-![](http://pkafgcch8.bkt.clouddn.com/css/grid/grid.png)
+![](/../images/grid.png)
 
 ##### 把代码粘贴下来，然后在浏览器里试验各种属性和属性值，这是最快的方法
 
-> [掘金](https://juejin.im/entry/5894135c8fd9c5a19507f6a1)
- > [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+> 参考链接
+
+- [掘金](https://juejin.im/entry/5894135c8fd9c5a19507f6a1)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)

@@ -54,7 +54,7 @@
             </a>
           </span>
         </div>
-      {% endif %}
+      {% else %}
       <div class="archive-post">
         <span class="archive-post-time">
           {% if isArchivesPage or isArchivesMode %}
@@ -69,7 +69,7 @@
           </a>
         </span>
       </div>
-      
+      {% endif %}
     {% endfor %}
   </section>
 

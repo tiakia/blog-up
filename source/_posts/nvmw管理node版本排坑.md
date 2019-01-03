@@ -1,20 +1,22 @@
 ---
 title: nvmw管理node版本排坑
-tags: [node]
-date: 2018-12-11 15:24:43
+tags:
+  - node
 keywords:
   - nvmw
   - node
 clearReading: true
-thumbnailImage:
 thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
 autoThumbnailImage: true
 metaAlignment: center  //文章页图片上的文字居中显示
-coverImage: http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg
-coverCaption:
+coverImage: 'http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg'
 coverMeta: in
 coverSize: full
 comments: true
+abbrlink: 23140
+date: 2018-12-11 15:24:43
+thumbnailImage:
+coverCaption:
 ---
 
 nvmw 是 nvm 专为 Windows 开发的版本，用来管理 node 的版本，这里总结一下排坑记录

@@ -101,10 +101,7 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
-tweetableQuote:
-  quote_font_color: #258fb8
-  quote_font_size: 1.7em
-  link_font_color: #6e7b8d
-  link_font_size: 1.0em
-  via_twitter_account:
-  related_twitter_accounts:
+nofollow:
+  enable: true
+  exclude:
+    - http://angely.me

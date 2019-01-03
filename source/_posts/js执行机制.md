@@ -1,20 +1,24 @@
 ---
 title: js中的事件执行机制
-date: 2018-11-15 16:58
+date: '2018-11-15 16:58'
 categories: javascript
-tags: [js, promise, setTimeout]
+tags:
+  - js
+  - promise
+  - setTimeout
 keywords:
   - promise
 clearReading: true
-thumbnailImage:
 thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
 autoThumbnailImage: true
 metaAlignment: center  //文章页图片上的文字居中显示
-coverImage: http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg
-coverCaption:
+coverImage: 'http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg'
 coverMeta: in
 coverSize: full
 comments: true
+abbrlink: 37168
+thumbnailImage:
+coverCaption:
 ---
 
 占坑，先贴出参考链接

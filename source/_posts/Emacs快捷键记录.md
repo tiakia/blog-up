@@ -1,11 +1,13 @@
 ---
 title: Emacs快捷键记录
-tags: [emacs]
-date: 2017-08-30 09:11:21
+tags:
+  - emacs
 categories: emacs
+keywords: emacs
+abbrlink: 21683
+date: 2017-08-30 09:11:21
 description:
 thumbnail:
-keywords: emacs
 ---
 emacs使用笔记进阶，一步步的进阶教程
 

@@ -1,21 +1,18 @@
 ---
 title: 图片懒加载
-date: 2018-10-10 17:59
+date: '2018-10-10 17:59'
 categories: javascript
-tags: [js]
+tags:
+  - js
 keywords:
   - 图片懒加载
   - Intersection Observer
 clearReading: true
-thumbnailImage: http://pkafgcch8.bkt.clouddn.com/blog/window.png
-thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
-autoThumbnailImage: true
-metaAlignment: center  //文章页图片上的文字居中显示
-coverImage: http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg
-coverCaption:
 coverMeta: in
 coverSize: full
 comments: true
+abbrlink: 8917
+coverCaption:
 ---
 
 一直都想自己实现这个功能而不是知道原理不实践，这次突然看到掘金上的文章后，跟着走了一遍代码，原来不管什么效果只知道原理是远远不够的，你必须亲自实现一下，然后才知道其中的坑，也会学到更多。程序员就要勤于动手。
@@ -24,7 +21,7 @@ comments: true
 
 先放一张自己画的图，理清楚这几个高度的关系。
 
-![clientHeight](./../images/window.png)
+![clientHeight](/../images/window.png)
 
 - 认识一个函数`let rectObj = element.getBoundingClientRect()`
   - 返回的对象`rectObj.top` 表示的是 该元素 距离视口（浏览器窗口）的距离，即图中的 `clientBoundRect.top`

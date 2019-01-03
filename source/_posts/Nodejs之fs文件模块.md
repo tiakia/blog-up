@@ -1,8 +1,10 @@
 ---
 title: Nodejs之fs文件模块
-tags: [nodejs]
-date: 2018-04-11 11:03:07
+tags:
+  - nodejs
 categories: nodejs
+abbrlink: 27357
+date: 2018-04-11 11:03:07
 description:
 thumbnail:
 keywords:
@@ -10,7 +12,7 @@ keywords:
 
 这里记录几个常用的文件模块，文件模块属于核心模块，使用的时候需要提前引入。
 
-```
+```javascript
 fs.open(paht, flags[,mode],callback)
 ```
 
@@ -32,15 +34,14 @@ fs.open(paht, flags[,mode],callback)
 - `w` - 以写入模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。
 - `a` - 以追加模式打开文件。如果文件不存在，则会被创建。
 
-```
-
+```javascript
 fs.openSync(path, flags[,mode])
 ```
 
 fs.open 的同步版本，返回一个表示文件描述符的整数
 
-```
-fs.read(fd, buffer, offset, length, position, callback)
+```javascript
+fs.read(fd, buffer, offset, length, position, callback);
 ```
 
 - **fd** - 通过 open 方法成功打开一个文件返回的编号
@@ -53,14 +54,13 @@ fs.read(fd, buffer, offset, length, position, callback)
   - **bytesRead** - 读取的 buffer 的字节长度
   - **newBuffer** - 新的`buffer`对象
 
-```
-
-fs.readSync(fd, buffer, offset, length, position)
+```javascript
+fs.readSync(fd, buffer, offset, length, position);
 ```
 
 fs.read 的同步版本，返回 bytesRead 的数量
 
-```
+```javascript
 fs.readFile(path[, options], callback)
 ```
 
@@ -74,8 +74,7 @@ fs.readFile(path[, options], callback)
   - **err**
   - **data** - 文件的内容
 
-```
-
+```javascript
 fs.write(fd, buffer[, offset[, length[, position]]], callback)
 ```
 
@@ -91,20 +90,19 @@ fs.write(fd, buffer[, offset[, length[, position]]], callback)
   - **bytesWritten** - 指定从 buffer 写入了多少字节
   - **newBuffer** - 新的`buffer`对象
 
-```
+```javascript
 fs.writeSync(fd, buffer[, offset[, length[, position]]])
 ```
 
 fs.write()的同步版本
 
-```
-
+```javascript
 fs.writeSync(fd, string[, position[, encoding]])
 ```
 
 fs.write()的同步版本，返回写入的字节数
 
-```
+```javascript
 fs.write(fd, string[, position[, encoding]], callback)
 ```
 
@@ -116,8 +114,7 @@ fs.write(fd, string[, position[, encoding]], callback)
   - **written** - 指定传入的字符串被写入多少字节。注意，写入的字节与字符字符是不同的不同于写入 buffer，该方法整个字符串必须被写入。不能指定子字符串。 这是因为结果数据的字节偏移量可能与字符串的偏移量不同。
   - **string**
 
-```
-
+```javascript
 fs.writeFile(file, data[, options], callback)
 ```
 
@@ -132,14 +129,13 @@ fs.writeFile(file, data[, options], callback)
 - **callback**
   - **err**
 
-```
+```javascript
 fs.writeFileSync(file, data[, options])
 ```
 
 fs.writeFile()的同步版本，返回 undefined
 
-```
-
+```javascript
 fs.appendFile(file, data[, options], callback)
 ```
 
@@ -154,22 +150,21 @@ fs.appendFile(file, data[, options], callback)
 - **callback**
   - **err**
 
-```
+```javascript
 fs.appendFileSync(file, data[, options])
 ```
 
 fs.appendFile() 的同步版本。 返回 undefined。
 
-```
-
-fs.existsSync(path)
+```javascript
+fs.existsSync(path);
 ```
 
 如果文件存在，则返回 true，否则返回 false。他的异步版本`fs.exists(paht,callback)`已经被废弃了，如果非要用异步检查，推荐使用`fs.access()`替代
 
 不推荐在调用 fs.open，fs.readFile()，fs.writeFile() 之前使用 fs.exists() 检测文件是否存在。这样做会引起竞争条件，因为在两次调用之间，其他进程可能修改文件。作为替代，用户应该直接开/读取/写入文件，当文件不存在时再处理错误。
 
-```
+```javascript
 fs.access(path[, mode], callback)
 ```
 
@@ -182,28 +177,26 @@ fs.access(path[, mode], callback)
 - **callback**
   - **err**
 
-```
-
+```javascript
 fs.accessSync(path[, mode])
 ```
 
 fs.access() 的同步版本。如果有任何可访问性检查失败则抛出错误，否则什么也不做。
 
-```
-fs.unlink(path, callback)
+```javascript
+fs.unlink(path, callback);
 ```
 
 删除一个文件
 
-```
-
-fs.unlinkSync(path)
+```javascript
+fs.unlinkSync(path);
 ```
 
 同步的`fs.unlink()`,返回 undefined
 
-```
-fs.rename(oldPath, newPath, callback)
+```javascript
+fs.rename(oldPath, newPath, callback);
 ```
 
 将`oldPath`的文件重命名为`newPath`
@@ -211,14 +204,13 @@ fs.rename(oldPath, newPath, callback)
 - **callback**
   err
 
-```
-
-fs.renameSync(oldPath, newPath)
+```javascript
+fs.renameSync(oldPath, newPath);
 ```
 
 返回`undefined`
 
-```
+```javascript
 fs.readir(path[, options], callback)
 ```
 
@@ -230,21 +222,19 @@ fs.readir(path[, options], callback)
   - **err**
   - **files** - 目录中不包括 '.' 和 '..' 的文件名的数组
 
-```
-
-fs.rmdir(path, callback)
+```javascript
+fs.rmdir(path, callback);
 ```
 
 移除文件夹
 
-```
-fs.rmdirSync(path)
+```javascript
+fs.rmdirSync(path);
 ```
 
 `fs.rmdir()`的同步版本，返回`undefined`
 
-```
-
+```javascript
 fs.mkdir(path[, mode], callback)
 ```
 
@@ -254,15 +244,14 @@ fs.mkdir(path[, mode], callback)
 - **callback**
   - **err**
 
-```
+```javascript
 fs.mkdirSync(path[, mode])
 ```
 
 `fs.mkdir()`的同步版本，返回`undefined`
 
-```
-
-fs.stat(path, callback)
+```javascript
+fs.stat(path, callback);
 ```
 
 返回文件属性
@@ -272,39 +261,31 @@ fs.stat(path, callback)
   - **err**
   - **stats** - 返回一个如下对象
 
-```test.js %}
-
-<!-- tab js -->
-
+```javascript test.js
 Stats {
-dev: 2114,
-ino: 48064969,
-mode: 33188,
-nlink: 1,
-uid: 85,
-gid: 100,
-rdev: 0,
-size: 527,
-blksize: 4096,
-blocks: 8,
-atimeMs: 1318289051000.1,
-mtimeMs: 1318289051000.1,
-ctimeMs: 1318289051000.1,
-birthtimeMs: 1318289051000.1,
-atime: Mon, 10 Oct 2011 23:24:11 GMT,
-mtime: Mon, 10 Oct 2011 23:24:11 GMT,
-ctime: Mon, 10 Oct 2011 23:24:11 GMT,
-birthtime: Mon, 10 Oct 2011 23:24:11 GMT
+    dev: 2114,
+    ino: 48064969,
+    mode: 33188,
+    nlink: 1,
+    uid: 85,
+    gid: 100,
+    rdev: 0,
+    size: 527,
+    blksize: 4096,
+    blocks: 8,
+    atimeMs: 1318289051000.1,
+    mtimeMs: 1318289051000.1,
+    ctimeMs: 1318289051000.1,
+    birthtimeMs: 1318289051000.1,
+    atime: Mon, 10 Oct 2011 23:24:11 GMT,
+    mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+    ctime: Mon, 10 Oct 2011 23:24:11 GMT,
+    birthtime: Mon, 10 Oct 2011 23:24:11 GMT
 }
-
-<!-- endtab -->
-
 ```
 
-```
-
+```javascript
 fs.watch(filename[, options][, listener])
-
 ```
 
 监测文件的改变
@@ -318,8 +299,4 @@ fs.watch(filename[, options][, listener])
   - **evenType** - 'rename' 或 'change'，filename 是触发事件的文件的名称。
   - **filename**
 
-##### 注意，在大多数平台，当一个文件出现或消失在一个目录里时，'rename' 会被触发。
-
-```
-
-```
+> 注意，在大多数平台，当一个文件出现或消失在一个目录里时，'rename' 会被触发。

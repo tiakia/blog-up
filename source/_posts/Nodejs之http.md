@@ -1,82 +1,62 @@
 ---
 title: Nodejs之http
-tags: [nodejs]
-date: 2018-04-11 11:06:12
+tags:
+  - nodejs
 categories: nodejs
+abbrlink: 61557
+date: 2018-04-11 11:06:12
 description:
 thumbnail:
 keywords:
 ---
 
-```
-首先需要引入http模块 `var http = require('http')`
+### 引入 http 模块
+
+```javascript
+var http = require("http");
 ```
 
 创建服务
 
 <!-- more -->
 
-```
-
-<!-- tab js -->
-
-http.createServer(function(res,req){
-// request 事件
-})
-
-<!-- endtab -->
-
+```javascript
+http.createServer(function(res, req) {
+  // request 事件
+});
 ```
 
 或者是:
 
-```
-
-<!-- tab js -->
-
+```javascript
 const server = http.createServer();
-server.on('request',callback); //监听 request 事件
-
-<!-- endtab -->
-
+server.on("request", callback); //监听 request 事件
 ```
 
 `createserver`的回调函数就是 `server.on('request',callback);`
 
-```
-
 `listening` 监听服务是否开启了
+
+```javascript
+server.listening; //返回一个 bool 值 表示服务器是否正在监听连接
 ```
 
-```
-<!-- tab js -->
-server.listening //返回一个 bool 值 表示服务器是否正在监听连接
-<!-- endtab -->
-```
+### `request`事件
 
-```warning %}
-`request`事件，回调函数的俩个参数重要的属性
+回调函数的俩个参数重要的属性
 
-```
-
-```
-
-<!-- tab js -->
-
+```javascript
 server.on('request',function(req, res){...})
-
-<!-- endtab -->
-
 ```
 
-### req
+#### req
 
 - **httpVersion**
 - **headers**
 - **url**
 - **method**
 
-### res
+#### res
 
 - **res.write(chunk[,encoding])**
   - 返回给前端的数据 chunk 编码方式 默认 utf8
@@ -86,44 +66,23 @@ server.on('request',function(req, res){...})
   - 设置返回头信息,单个的,自定义的
 - **res.statusCode**
   - 该属性用来设置返回的状态码
-- **res.end([chunk],encoding)** - 当所有正文和头信息发送完成以后调用该方法，告诉服务器数据已经全部发送完了，
-  这个方法在每次完成信息发送以后必须调用，并且是最后调用
-
-```
-
-<!-- tab js -->
-
-server.on('error',function(err){...})
-
-<!-- endtab -->
-
-```
+- **res.end([chunk],encoding)**
+  - 当所有正文和头信息发送完成以后调用该方法，告诉服务器数据已经全部发送完了，
+    这个方法在每次完成信息发送以后必须调用，并且是最后调用
 
 `error`事件用来监听连接出错的情况
 
-```
-
-<!-- tab js -->
-
-server.listen()
-
-<!-- endtab -->
-
+```javascript
+server.on('error',function(err){...})
 ```
 
 `listen`事件，用来确定连接的端口号和主机名，必须有`listen`事件才能开始连接
 
+```javascript
+server.listen(8080, "localhost");
 ```
 
-<!-- tab js -->
-
-server.listen(8080, 'localhost');
-
-<!-- endtab -->
-
-```
-
-#### http 处理 get/post 请求
+### http 处理 get/post 请求
 
 - 在`request`事件中回调函数可以通过`req.url`拿到这个`url`
 - 使用`url.parse()`方法解析`url`拿到`url`的对象`urlStr`
@@ -136,12 +95,9 @@ server.listen(8080, 'localhost');
 - 数据在触发`end`事件的时候发送完成，转成字符串和`get`请求的数据格式一样
 - 使用`querystirng.parse()`解析得到数据的对象表示
 
-```success %}
-示例代码
-```
+**示例代码**
 
-```
-<!-- tab js -->
+```javascript
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
@@ -212,7 +168,4 @@ server.on('error', function(err){
 });
 
 server.listen(8080, 'localhost');
-
-
-<!-- endtab -->
 ```

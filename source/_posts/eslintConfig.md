@@ -1,20 +1,16 @@
 ---
 title: eslint配置记录
-date: 2018-08-16 09:39
+date: '2018-08-16 09:39'
 categories: webpack
-tags: [eslint, webpack]
+tags:
+  - eslint
+  - webpack
 keywords:
   - eslint
-clearReading: true
-thumbnailImage:
-thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
-autoThumbnailImage: true
-metaAlignment: center  //文章页图片上的文字居中显示
-coverImage: http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg
-coverCaption:
-coverMeta: in
-coverSize: full
 comments: true
+abbrlink: 13347
+thumbnailImage:
+coverCaption:
 ---
 
 eslint 可以帮助进行我们检查代码，使我们的代码写的整洁，高效，在这里总结一篇关于 eslint 配置的一些事项，一些规则持续更新。
@@ -23,29 +19,26 @@ eslint 的配置文件放在根目录中，新建`.eslintrc.js`文件，然后�
 
 <!-- more -->
 
-```.eslintrc.js %}
+```javascript .eslintrc.js
 module.exports = {
-    "parser": "babel-eslint",
-    env: {
-        browser: true,
-        node: true,
-        es6: true,
-    },
-    "plugins": [
-        "react",
-        "jsx-a11y"
-    ],
-    "rules": {
-        "react/prop-types": [2],
-        "jsx-a11y/href-no-hash": "off"
-    },
-    "extends": "react-app"
-}
+  parser: "babel-eslint",
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  plugins: ["react", "jsx-a11y"],
+  rules: {
+    "react/prop-types": [2],
+    "jsx-a11y/href-no-hash": "off"
+  },
+  extends: "react-app"
+};
 ```
 
 我们来详细的看一下 各个字段所代表的意思：
 
-###### rules:
+### rules:
 
 是你具体配置的 eslint 的规则对象，对象的属性名为具体的规则名称，其他的规则名称会在文末有个总结，属性值是定义规则的开闭原则可以使用以下的值：
 
@@ -53,43 +46,41 @@ module.exports = {
 - `"warn"` or `1`-将规则视为一个警告，不会影响编译
 - `"error"` or `2`- 将规则视为一个错误，在打包编译的时候会报错
 
-###### extends:
+### extends:
 
 这个字段表示的是 eslint 的扩展，你可以通过这个来使用社区别人写好的规则，我这里使用的是 `create-react-app` 的 eslint 扩展。也可以使用 `"extends": "eslint:recommended"`这样会开启 eslint 推荐打开的规则。
 
-###### parser:
+### parser:
 
 规定 eslint 的解析器，默认是 `esprima`，在这个配置中使用的是`bael-eslint`解析器
 
-###### plugins:
+### plugins:
 
 eslint 支持 第三方插件，在使用前必须安装他们，插件名称可以省略 `eslint-plugin-`前缀,常用的俩个插件就是 `eslint-plugin-react` 和 `eslint-plugin-jsx-a11y`,如果在 `rules` 规则对象中使用 插件中的规则的话，就如上面配置中的那样是 `react/prop-tyeps` 这样来使用。
 
-###### env:
+### env:
 
 规定了 eslint 的启用环境
 
-###### eslintignore
+### eslintignore
 
 配置 忽略 eslint 语法检查的文件，可以配置在 `package.json` 文件里,同样 eslint 的配置同样也可以放在 `package.json` 文件里
 
-```
-
+```json
 {
-"name": "mypackage",
-"version": "0.0.1",
-"eslintConfig": {
-"env": {
-"browser": true,
-"node": true
+  "name": "mypackage",
+  "version": "0.0.1",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "eslintIgnore": ["hello.js", "world.js"]
 }
-},
-"eslintIgnore": ["hello.js", "world.js"]
-}
-
 ```
 
-##### rules
+### rules
 
 这些规则 js 中的可能的错误或逻辑错误有关：
 
@@ -367,7 +358,3 @@ ES6 规则：
 | symbol-description      | 要求 symbol 描述                                                         |
 | template-curly-spacing  | 要求或禁止模板字符串中的嵌入表达式周围空格的使用                         |
 | yield-star-spacing      | 强制在 yield* 表达式中 * 周围使用空格                                    |
-
-```
-
-```

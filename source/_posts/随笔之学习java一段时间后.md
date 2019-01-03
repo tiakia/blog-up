@@ -1,8 +1,10 @@
 ---
 title: 随笔之学习java一段时间后
-tags: [随笔]
-date: 2017-11-13 12:20:59
+tags:
+  - 随笔
 categories: 随笔
+abbrlink: 60323
+date: 2017-11-13 12:20:59
 description:
 thumbnail:
 keywords:

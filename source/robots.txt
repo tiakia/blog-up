@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+Allow: /tags/
+Allow: /posts/
+Disallow: /vendors/
+Disallow: /assets/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fancybox/
+
+Sitemap: http://www.tiankai.party/sitemap.xml
+Sitemap: http://www.tiankai.party/baidusitemap.xml

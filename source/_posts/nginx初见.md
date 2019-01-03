@@ -1,25 +1,20 @@
 ---
 title: nginx初见
-date: 2018-06-19 09:56
+date: '2018-06-19 09:56'
 categories: nginx
-tags: [nginx]
+tags:
+  - nginx
 keywords:
   - nginx
   - 负载均衡
   - 反向代理
-clearReading: true
-thumbnailImage:
-thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
-autoThumbnailImage: true
-metaAlignment: center  //文章页图片上的文字居中显示
-coverImage: http://pkafgcch8.bkt.clouddn.com/cover/cover.jpg
-coverCaption:
-coverMeta: in
-coverSize: full
 comments: true
+abbrlink: 40486
+thumbnailImage:
+coverCaption:
 ---
 
-第一次近距离的接触 `red %}nginx`,今天先来了解一下 nginx 的俩个重要的功能 `反向代理`和`负载均衡`
+第一次近距离的接触 `nginx`,今天先来了解一下 nginx 的俩个重要的功能 `反向代理`和`负载均衡`
 
 <!-- more -->
 
@@ -62,10 +57,9 @@ windows 上如果修改了配置文件需要先`nginx -s quit` 退出 nginx ,然
 
 ### nginx 配置文件
 
-找到 nginx 的配置文件,`conf/nginx.conf`
+找到 nginx 的配置文件`conf/nginx.conf`
 
-```conf/nginx.conf  %}
-<!-- tab nginx -->
+```nginx conf/nginx.conf
 # 全局配置
 user nobody;  # nginx子进程运行的用户和用户组
 worker_processes 1;  # 开启一个 nginx 工作进程,一般 CPU 几核就写几
@@ -92,15 +86,13 @@ http {
         }
     }
 }
-<!-- endtab -->
 ```
 
 ### proxy_pass
 
 nginx 的反向代理主要通过`proxy_pass`来实现,比如说实现访问`localhost:80`然后反向代理到我的博客.进行以下的配置:
 
-```nginx.conf  %}
-<!-- tab nginx -->
+```nginx nginx.conf
 server {
     listen 80;
     server_name localhost;
@@ -108,7 +100,6 @@ server {
         proxy_pass http://www.tiankai.party;
     }
 }
-<!-- endtab -->
 ```
 
 然后重新启动 nginx 服务,在浏览器输入 `localhost:80` 就发现被反向代理到了我的博客地址
@@ -117,8 +108,7 @@ server {
 
 实现负载均衡就要用到这个模块了.
 
-```nginx.conf  %}
-<!-- tab nginx -->
+```nginx nginx.conf
 server {
    upstream www.tiankai.party {
      ip_hash;
@@ -131,8 +121,8 @@ server {
        proxy_pass http://www.tiankai.party
    }
 }
-<!-- endtab -->
 ```
 
 当用户请求被反向代理到了`http://www.tiankai.party` 的时候,会对应的找到 名为 `www.tiankai.party` 的 `upstream` 的 四个 服务器,这样在访问`localhost:80`的时候,就会把请求代理到 这四个服务器上,实现负载均衡.
+
 `ip_hash`的作用: 是为了在用户访问后留下记号,这样下次用户再进行访问的时候直接访问上次分发的服务器地址就行了.
