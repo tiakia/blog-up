@@ -15,4 +15,8 @@
     <div id="gitalk-container"></div>
     {% endif %}
   </div>
+  {% elif not page.comments and page.valine %}
+  <div class="comments" id="comments">
+    <div id="vcomments"></div>
+  </div>
 {% endif %}

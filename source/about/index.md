@@ -2,7 +2,8 @@
 title: 关于我
 date: 2017-07-25 08:31:23
 layout: about
-comments: true
+comments: false
+valine: true
 ---
 
 <img src='../images/about.gif' style="width:100%;height:auto" alt="封面图"/>
