@@ -1,6 +1,6 @@
 ---
 title: 使用eslint来规范你的代码
-date: '2018-10-30 22:30'
+date: "2018-10-30 22:30"
 categories: 工具
 tags: 工具
 keywords:
@@ -450,7 +450,6 @@ module.exports = {
 - 打开 `文件 --- 首选项 --- 设置 --- 在 settings.json 中 编辑`
 
 ```javascript settings.json
-
 "editor.formatOnSave": true,
 "prettier.eslintIntegration": true,
 "eslint.autoFixOnSave": true,
@@ -458,7 +457,6 @@ module.exports = {
 "eslintConfig": "c:/Users/TK/.eslintrc.js"
 },
 "javascript.format.enable": false
-
 ```
 
 > tips： 在编辑 react 文件的时候 vscode 需要把右下角的解析器 `Javascript(Babel)` 改为 `JavaScript React`,这样在保存的时候格式才不会乱
@@ -476,7 +474,7 @@ module.exports = {
 
 #### Prettier
 
-1.WebStorm 2018.1 和以上的版本
+1. WebStorm 2018.1 和以上的版本
 
 - 官方已经默认支持了 `prettier`,可以在`File --- settings --- Languages & Frameworks --- JavaScript --- Prettier` 中找到，找到后需要配置一下。
 - `Node interpreter` --- 找到你安装的 `node.exe` 的目录。
@@ -485,7 +483,7 @@ module.exports = {
 
   - eg: `~\AppData\Roaming\npm\node_modules\prettier`
 
-    2.Webstorm 2017.3 和更早的版本这个没跟着配过，我的版本是 2018 的，这个是从官网扒下来的，文末有链接。
+2. Webstorm 2017.3 和更早的版本这个没跟着配过，我的版本是 2018 的，这个是从官网扒下来的，文末有链接。
 
 - 转到`首选项 | 工具 | 外部工具`,
 - 然后单击`+`添加新工具。`Name`填写为 Prettier,
