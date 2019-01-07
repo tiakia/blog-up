@@ -6,7 +6,7 @@
                  el: '#vcomments',
                  appId: 'mHpxyV0xcQyMrB2dHk2QFSLw-gzGzoHsz',
                  appKey: 'bbMgs8TWUCnI0qmOYXY0hyGA',
-                 notify: true,
+                 notify: false,
                  placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
                  avatar: 'identicon',
                  verify: false
