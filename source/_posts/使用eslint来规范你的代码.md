@@ -472,7 +472,7 @@ module.exports = {
 - WebStorm 2018.1 和以上的版本
 - Webstorm 2017.3 和更早的版本
 
-#### Prettier
+> Prettier
 
 1. WebStorm 2018.1 和以上的版本
 
@@ -494,7 +494,7 @@ module.exports = {
 - 按`Cmd/Ctrl-Shift-A`（查找操作），搜索`Prettier`，然后点击`Enter`。
 - `prettier` 将针对当前文件运行
 
-### eslint
+> eslint
 
 `eslint`没找以前的版本，直接找的 2018 的，感兴趣的可以去配一下，和`prettier`大同小异
 
