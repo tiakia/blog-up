@@ -6,7 +6,7 @@ comments: false
 valine: true
 ---
 
-<img src='../images/about.gif' style="width:100%;height:auto" alt="封面图"/>
+<img src='../images/about.jpg' style="width:100%;height:auto" alt="封面图"/>
 {% aplayer "一生所爱" "卢冠廷/莫文蔚" "./../mp3/一生所爱.mp3" "/../images/18740076184895390.jpg" %}
 > 联系方式：
 
