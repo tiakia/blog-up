@@ -4,6 +4,7 @@ menu:
   tags: 标签
   categories: 分类
   about: 关于
+  comments: 留言板
 
 footer:
   powered: "由 %s 强力驱动"
@@ -16,13 +17,13 @@ posts:
   next_post: 下一篇
   toc: 文章目录
   readmore: 阅读更多
-  visits: '阅读次数'
-  reward: '赞赏支持'
+  visits: "阅读次数"
+  reward: "赞赏支持"
 
 copyright:
-  author: '原文作者'
-  link: '原文链接'
-  license: '许可协议'
+  author: "原文作者"
+  link: "原文链接"
+  license: "许可协议"
 
 counter:
   archives:
@@ -36,6 +37,6 @@ counter:
     other: "目前共计 %d 个标签"
 
   categories:
-    zero:  暂无分类
+    zero: 暂无分类
     one: 目前共计 1 个分类
     other: "目前共计 %d 个分类"

@@ -1,4 +1,4 @@
-{% if theme.gitalk.enable and page.layout !== 'about' %}
+{% if theme.gitalk.enable and not page.valine %}
   <script>
      (function() {
          function render() {
