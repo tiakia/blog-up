@@ -1,4 +1,4 @@
-{% if theme.gitalk.enable %}
+{% if theme.gitalk.enable and page.layout !== 'about' %}
   <script>
      (function() {
          function render() {

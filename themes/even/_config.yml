@@ -113,6 +113,15 @@ gitalk:
     # Your client secret:
     client_secret: "15ab54f8f528045cdf07d8dbb2d4c0faa69f9462"
 
+# Valine 关于我页面留言板
+valine:
+  enable: true
+  appId: "mHpxyV0xcQyMrB2dHk2QFSLw-gzGzoHsz"
+  appKey: "bbMgs8TWUCnI0qmOYXY0hyGA"
+  avatar: "monsterid" # monsterid identicon wavatar
+  placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!"
+  notify: false
+  verify: false
 # ===========================================
 # Version
 # ===========================================
