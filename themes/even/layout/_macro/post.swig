@@ -20,6 +20,12 @@
             {% endfor %}
           </span>
         {% endif %}
+        <span class="post-visits">
+          {{ wordcount(post.content) }} 字
+        </span>
+        <span class="post-visits">
+          {{ min2read(post.content) }} 分钟
+        </span>
         {% if theme.leancloud.app_id and theme.leancloud.app_key %}
         <span class="post-visits"
              data-url="{{ url_for(post.path) }}"
