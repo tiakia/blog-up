@@ -43,3 +43,15 @@ Moorez:
   link: https://zyl.me/
   avatar: ../images/friends.png
   descr: 酷站，大神，前端
+lien:
+  name: lien
+  link: https://lienjack.github.io/Blog/
+  descr: 工作三年转行前端的图形处理大神
+技术胖:
+  name: 技术胖
+  link: http://jspang.com/
+  descr: 致力于免费视频教程的前端大牛
+蓝色的秋风:
+  name: 蓝色的秋风
+  link: https://huayifeng.top/author/lschief/
+  descr: 科班出身，入职美团

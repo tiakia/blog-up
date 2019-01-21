@@ -187,6 +187,59 @@ const RouteConfig = [
 
 其他具体的路由约定规则，可以参考[umi 官网](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
 
+#### `webapck-chain`配置
+
+umi 最大的优点我觉得就是加入了`webapck-chain`可以自己扩展`webpack`配置，配置的地方在根目录的`config.js`或者`.umirc.js`
+具体的配置如下：
+
+```javascript .umirc.js
+// ref: https://umijs.org/config/
+import path from "path";
+
+export default {
+  plugins: [
+    // ref: https://umijs.org/plugin/umi-plugin-react.html
+    [
+      "umi-plugin-react",
+      {
+        antd: true,
+        dva: {
+          immer: true
+        },
+        title: "answers-mobile",
+        dll: true,
+        routes: {
+          exclude: []
+        },
+        hardSource: true,
+        fastClick: true,
+        library: "react",
+        dynamicImport: {
+          loadingComponent: "./components/Loading.js",
+          webpackChunkName: true
+        }
+      }
+    ]
+  ],
+  theme: {},
+  alias: {
+    src: path.resolve(__dirname, "src")
+  },
+  //添加 webpack-bundle-analyzer 插件
+  //更多的添加方式请查看 webpack-chain
+  chainWebpack(config, { webpack }) {
+    config.merge({
+      plugin: {
+        bundleAnalyzer: {
+          plugin: require("webpack-bundle-analyzer").BundleAnalyzerPlugin,
+          args: [{ analyzerPort: 9999 }]
+        }
+      }
+    });
+  }
+};
+```
+
 ### umi 和 dva 架构对比
 
 dva 项目之前通常都是这种扁平的组织方式，
@@ -230,3 +283,4 @@ dva 项目之前通常都是这种扁平的组织方式，
 [dva 官网](https://dvajs.com/guide/)
 [umi 配置](https://umijs.org/zh/config/#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
 [umi 和 dva 更配](https://github.com/sorrycc/blog/issues/66)
+[webpack-chain](https://github.com/neutrinojs/webpack-chain)

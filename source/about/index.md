@@ -23,3 +23,6 @@ comments: false
 - [汤姆大叔: 深入理解 javaScript 系列](http://www.cnblogs.com/tomxu/archive/2011/12/15/2288411.html)
 - [王福朋: 深入理解闭包和原型链](http://www.cnblogs.com/wangfupeng1988/p/4001284.html)
 - [赵云龙](https://zyl.me/)
+- [lien: 工作三年转行前端的图形处理大神](https://lienjack.github.io/Blog/)
+- [技术胖: 致力于免费视频教程的前端大牛](http://jspang.com/)
+- [蓝色的秋风: 科班出身，入职美团](https://huayifeng.top/author/lschief/)
