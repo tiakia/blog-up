@@ -236,6 +236,12 @@ export default {
         }
       }
     });
+    //第二种方式添加
+    /*config
+      .plugin("webpack-bundle-analyzer")
+      .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin, [
+        { analyzerPort: 9900 }
+      ]);*/
   }
 };
 ```
