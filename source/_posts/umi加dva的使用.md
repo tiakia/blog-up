@@ -240,6 +240,14 @@ export default {
 };
 ```
 
+其实`umi`默认加载了`webpack-bundle-analyzer`插件，只需要在`.env`文件中添加
+
+```javascript .env
+ANALYZE = 1;
+```
+
+就可以启用打包分析了。其他的更多配置可以参考一下 [umi 官网的`.env`配置](https://umijs.org/zh/guide/env-variables.html#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE)。
+
 ### umi 和 dva 架构对比
 
 dva 项目之前通常都是这种扁平的组织方式，
