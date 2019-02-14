@@ -163,7 +163,8 @@ import ajax from "src/utils/axios";
 export function fetchClientMarket(payload) {
   return ajax({
     method: "GET",
-    url: `/report/clientMarket/clientMarketStatistics?${payload}`
+    url: `/report/clientMarket/clientMarketStatistics`,
+    params: payload
   });
 }
 
