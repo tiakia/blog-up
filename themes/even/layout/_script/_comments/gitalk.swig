@@ -1,4 +1,4 @@
-{% if theme.gitalk.enable and not page.valine %}
+{% if theme.gitalk.enable and page.comments %}
   <script>
      (function() {
          function render() {

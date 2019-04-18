@@ -30,7 +30,7 @@
       a {
         color: inherit;
 
-        & + a {
+        &+a {
           &::before {
             content: '/';
             margin-right: 3px;
@@ -44,7 +44,9 @@
       }
     }
 
-    .post-visits {
+    .post-visits,
+    .post-times,
+    .post-counts {
       display: inline-block;
       font-size: 14px;
       color: $post-meta-font-color;

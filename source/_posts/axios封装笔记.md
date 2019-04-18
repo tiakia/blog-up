@@ -65,7 +65,7 @@ export const config = {
     function(data, headers) {
       // Do whatever you want to transform the data
       // console.log(headers);
-      return stringify(data);
+      return JSON.stringify(data);
     }
   ],
 
@@ -75,7 +75,7 @@ export const config = {
     function(data) {
       // Do whatever you want to transform the data
 
-      return data;
+      return JSON.parse(data);
     }
   ],
 
@@ -101,9 +101,11 @@ instance.interceptors.request.use(
     if (token) {
       config.headers["AUTHORIZATION"] = token;
     }
-    if (config.method === "post") {
-      config.headers["Content-Type"] =
-        "application/x-www-form-urlencoded;charset=UTF-8";
+    if (config.method === "post" || config.method === "put") {
+      config.headers["Content-Type"] = "application/json;charset=UTF-8";
+    }
+    if (config.method === "get") {
+      config.data = stringify(config.data);
     }
 
     return config;

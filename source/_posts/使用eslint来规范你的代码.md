@@ -1,5 +1,5 @@
 ---
-title: 使用eslint来规范你的代码
+title: 使用eslint+prettier来规范你的代码
 date: "2018-10-30 22:30"
 categories: 工具
 tags: 工具
@@ -21,6 +21,7 @@ abbrlink: 42946
 npm install -g eslint
 npm install -g prettier
 npm install -g eslint-plugin-prettier
+npm install -g eslint-config-prettier
 ```
 
 react 相关
@@ -515,6 +516,18 @@ module.exports = {
 4. 打开设置 `File --- settings --- Keymap`,搜索刚刚保存的 宏的名字
 5. 双击 选择 `Add Keyboard Shortcut` 弹出框出来后 键盘上按 `Ctrl-S`,选择 `Remove`
 6. finish 完成了。
+
+### Emacs
+
+```lisp 
+;; prettier code
+(use-package prettier-js
+  :init
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (add-hook 'js2-jsx-mode-hook 'prettier-js-mode))
+
+```
 
 > 参考链接
 

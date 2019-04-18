@@ -3,13 +3,15 @@
     <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
      new Valine({
+                 av: AV,
                  el: '#vcomments',
                  appId: '{{theme.valine.appId}}',
                  appKey: '{{theme.valine.appKey}}',
                  placeholder: '{{theme.valine.placeholder}}',
                  avatar: '{{theme.valine.avatar}}',
-                 notify: '{{theme.valine.notify}}',
-                 verify: '{{theme.valine.verify}}'
+                 notify: {{theme.valine.notify}},
+                 verify: {{theme.valine.verify}},
+                 visitor: {{theme.valine.visitor}}
              })
     </script>
 {% endif %}

@@ -20,19 +20,21 @@
             {% endfor %}
           </span>
         {% endif %}
-        <span class="post-visits">
+        <span class="post-counts">
           {{ wordcount(post.content) }} 字
         </span>
-        <span class="post-visits">
+        <span class="post-times">
+          阅读用时
           {{ min2read(post.content) }} 分钟
         </span>
-        {% if theme.leancloud.app_id and theme.leancloud.app_key %}
-        <span class="post-visits"
+        <span class="post-visits leancloud-visitors"
              data-url="{{ url_for(post.path) }}"
-             data-title="{{ post.title }}">
+             data-title="{{ post.title }}" 
+             id="{{ url_for(post.path) }}" 
+             data-flag-title="{{ post.title }}">
           {{ __('posts.visits') }} 0
+           <i class="leancloud-visitors-count"></i>
         </span>
-        {% endif %}
       </div>
     </header>
 

@@ -5,8 +5,8 @@
 # Site
 title: Tiankai's Blog
 subtitle: 或碌碌无为,或轰轰烈烈
-description:
-keywords:
+description: 记录总结自己学习过程中的难题，帮助自己总结记忆。
+keywords: React,React Native,微信小程序,Webpack,Javascript
 author: tiankai
 language: zh-CN
 timezone:

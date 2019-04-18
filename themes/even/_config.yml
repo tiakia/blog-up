@@ -75,8 +75,8 @@ social:
 
 # LeanCloud
 leancloud:
-  app_id: "APUSn00FXLoznLkguOHkVcM5-gzGzoHsz"
-  app_key: "CgbpSHg5AJ62DOSsKHts1uph"
+  app_id: ""
+  app_key: ""
 
 # Baidu Analytics
 baidu_analytics: 661158ab1e0fccea66251d60f7dae96a
@@ -117,12 +117,13 @@ gitalk:
 # Valine 关于我页面留言板
 valine:
   enable: true
-  appId: "mHpxyV0xcQyMrB2dHk2QFSLw-gzGzoHsz"
-  appKey: "bbMgs8TWUCnI0qmOYXY0hyGA"
+  appId: mHpxyV0xcQyMrB2dHk2QFSLw-gzGzoHsz
+  appKey: bbMgs8TWUCnI0qmOYXY0hyGA
   avatar: "monsterid" # monsterid identicon wavatar
   placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!"
   notify: false
   verify: false
+  visitor: true
 # ===========================================
 # Version
 # ===========================================
