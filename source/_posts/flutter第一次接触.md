@@ -130,7 +130,10 @@ class MyAppState extends State<MyApp> {
 
 ### 学习路径
 
-其他的比如`flutter`的常用组件，布局方式等可以学习[官网](https://flutterchina.club/docs/)，教程可以去看看
+其他的比如`flutter`的环境搭建和常用组件，布局方式等可以学习
+ - [flutter中文官网](https://flutterchina.club/docs/）
 
-- [技术胖的视频教程](https://jspang.com/post/flutter1.html)，
-- [`github`有一个`flutter UI`](https://github.com/efoxTeam/flutter-ui)
+教程可以去看看
+
+ - [技术胖的视频教程](https://jspang.com/post/flutter1.html)
+ - [flutter UI](https://github.com/efoxTeam/flutter-ui)
