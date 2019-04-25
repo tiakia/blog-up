@@ -3,6 +3,7 @@ title: 如何在useEffect中请求数据
 abbrlink: 23994
 date: 2019-03-15 14:19:24
 tags: [react, effect-hook]
+categories: react
 ---
 
 上次介绍了一些`effect`的知识，这次我们来实践操作一下，在`react-hooks`中改如何正确的请求数据。

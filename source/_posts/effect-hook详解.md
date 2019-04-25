@@ -3,6 +3,7 @@ title: effect-hook详解
 abbrlink: 63515
 date: 2019-03-10 17:23:27
 tags: [react, effect-hook]
+categories: react
 ---
 
 之前写过一篇关于 react-hook 的文章，但也只是大略的简述了一下`useState`，这俩天在掘金看到一篇关于`effect-hook`的觉得很有必要来写写。相比于`useState`来说`useEffect`更难理解一些。如果不想看我写的，推荐阅读文末参考链接的文章，写的真好。

@@ -3,6 +3,7 @@ title: flutter第一次接触
 abbrlink: 801
 date: 2019-03-28 15:37:47
 tags: [flutter]
+categories: flutter
 ---
 
 去年大热的混合开发 APP 的框架`flutter`，最近体验了一把，在这里记录一些值得注意的东西。相比较于`React Native`来说，可能对前端不是很友好，但是也不是很难，可能很多同学因为要学`Dart`语言就怕了，其实写的时候，很少会用到`Dart`的语法，我们也只需要了解一点就行，本文不是教程，纯粹的是自己学习`Flutter`的笔记。

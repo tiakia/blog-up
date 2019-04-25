@@ -3,6 +3,7 @@ title: 手动安装AndroidStudio
 abbrlink: 61926
 date: 2019-02-18 14:32:52
 tags: android-studio
+categories: 工具
 ---
 
 因为不知名的原因会导致我们在安装`Android Studio`的时候，下载文件特别慢，我们可以在它下载过程中，获取到它的下载链接，然后用迅雷下载速度会快很多，所以这里写了手动安装`Android Studio`的过程,部分过程可能会有差异，需要灵活运用，时时关注`Android Studio`在下载过程中的日志进行调整。
