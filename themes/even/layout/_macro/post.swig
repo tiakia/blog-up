@@ -10,9 +10,9 @@
       </h1>
 
       <div class="post-meta">
-        <!-- <span class="post-time"> -->
-        <!--   {{ full_date(post.date, 'YYYY-MM-DD') }} -->
-        <!-- </span> -->
+        <span class="post-time">
+        {{ full_date(post.date, 'YYYY-MM-DD') }}
+        </span>
         {% if post.categories and post.categories.length %}
           <span class="post-category">
             {% for category in post.categories %}
