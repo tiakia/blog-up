@@ -10,9 +10,9 @@
       </h1>
 
       <div class="post-meta">
-        <span class="post-time">
-          {{ full_date(post.date, 'YYYY-MM-DD') }}
-        </span>
+        <!-- <span class="post-time"> -->
+        <!--   {{ full_date(post.date, 'YYYY-MM-DD') }} -->
+        <!-- </span> -->
         {% if post.categories and post.categories.length %}
           <span class="post-category">
             {% for category in post.categories %}
@@ -21,20 +21,19 @@
           </span>
         {% endif %}
         <span class="post-counts">
-          {{ wordcount(post.content) }} 字
+          Count: {{ wordcount(post.content) }} 字
         </span>
         <span class="post-times">
-          阅读用时
-          {{ min2read(post.content) }} 分钟
+          Time: {{ min2read(post.content) }} 分钟
         </span>
-        <span class="post-visits leancloud-visitors"
-             data-url="{{ url_for(post.path) }}"
-             data-title="{{ post.title }}" 
-             id="{{ url_for(post.path) }}" 
-             data-flag-title="{{ post.title }}">
-          {{ __('posts.visits') }} 0
-           <i class="leancloud-visitors-count"></i>
-        </span>
+        <!-- <span class="post-visits leancloud-visitors" -->
+        <!--      data-url="{{ url_for(post.path) }}" -->
+        <!--      data-title="{{ post.title }}" -->
+        <!--      id="{{ url_for(post.path) }}" -->
+        <!--      data-flag-title="{{ post.title }}"> -->
+        <!--   {{ __('posts.visits') }} 0 -->
+        <!--    <i class="leancloud-visitors-count"></i> -->
+        <!-- </span> -->
       </div>
     </header>
 

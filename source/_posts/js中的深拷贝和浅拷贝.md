@@ -101,7 +101,7 @@ obj3 = {
 
 1. 浅拷贝和赋值不一样，浅拷贝是在内存中新建了一个空间，变量存储的新的地址，
    改变浅拷贝的基础属性的值不会影响到原来的值，
-2. 改变引用类型的值会改变原始的值，这是因为，浅拷贝只会赋值一层，对于 obj1 里面的
+2. 改变引用类型的值会改变原始的值，这是因为，浅拷贝只会复制一层，对于 obj1 里面的
    friends(引用类型)的值不会进行复制。
 
 ### 深拷贝
@@ -143,6 +143,7 @@ var newObj = JSON.parse(JSON.stringify(obj));
 
 ```javascript
 Object.assign({}, obj);
+// [...obj1, obj2] 也是一样
 ```
 
 - 如果要拷贝 obj 只有一层数据结构的话那么他可以实现深拷贝
@@ -195,6 +196,47 @@ newObj = {
   year: 1988,
   friends: ["tmm", "zmm"]
 };
+```
+> 不进行递归，实现深度拷贝
+```javascript
+function deepClone(source) {
+  const root = {};
+  let nodeList = [
+    {
+      parent: root,
+      key: undefined,
+      data: source
+    }
+  ];
+
+  while (nodeList.length) {
+    // 深度优先
+    let node = nodeList.pop(),
+      parent = node.parent,
+      key = node.key,
+      data = node.data;
+    // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+    let result = parent;
+    if (typeof key !== "undefined") {
+      result = parent[key] = {};
+    }
+    for (let k in data) {
+      if (data.hasOwnProperty(k)) {
+        if (typeof data[k] === "object") {
+          // 下一次循环
+          nodeList.push({
+            parent: result,
+            key: k,
+            data: data[k]
+          });
+        } else {
+          result[k] = data[k];
+        }
+      }
+    }
+  }
+  return root;
+}
 ```
 
 > 参考链接:
