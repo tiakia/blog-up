@@ -25,3 +25,4 @@ comments: false
 - [lien: 工作三年转行前端的图形处理大神](https://lienjack.github.io/Blog/)
 - [技术胖: 致力于免费视频教程的前端大牛](http://jspang.com/)
 - [蓝色的秋风: 科班出身，入职美团](https://huayifeng.top/author/lschief/)
+- [梁小贝贝:冰冻三尺 非一日之寒,积土成山 非斯须之作](http://lsc626.cn)
