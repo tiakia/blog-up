@@ -1,7 +1,7 @@
 ---
 title: js原型链新理解
 tags:
-  - javascript
+  - js
 categories: javascript
 abbrlink: 43983
 date: 2018-04-10 17:35:08

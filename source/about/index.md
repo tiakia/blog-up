@@ -16,7 +16,7 @@ comments: false
 - [创造狮: 为创意工作者而设计](http://chuangzaoshi.com/)
 - [Colin's Nest: 一名 iOS 开发者，就职于美图。](http://colin1994.github.io)
 - [Angely: 个人程序，感情随笔](http://angely.me)
-- [晚晴幽草轩](http://www.jeffjade.com)
+- [晚晴幽草轩: It's only too late if you decide it is. Get busy living. or get busy dying!](http://www.jeffjade.com)
 - [Moorez: 路漫漫其长，我将上下寻找](http://shenzekun.cn)
 - [前端小蜜圈: 若批评无自由，则赞美无意义](http://qdxmq.com/)
 - [汤姆大叔: 深入理解 javaScript 系列](http://www.cnblogs.com/tomxu/archive/2011/12/15/2288411.html)

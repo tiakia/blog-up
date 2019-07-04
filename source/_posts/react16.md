@@ -240,10 +240,16 @@ class ExampleComponent extends PureComponent {
 
 > componentDidCatch
 
-`componentDidCatch(error, info)
+`componentDidCatch(error, info)`
 
 > getDerivedStateFromError
+
+`static getDerivedStateFromError(error)`
 
 为解决上述问题，react 在 16.6 版本新增了一个生命周期函数
 这个方法跟`getDerivedStateFromProps`类似，唯一的区别是他只有在出现错误的时候才触发，他相对于`componentDidCatch`的优势是在当前的渲染周期中就可以修改`state`，以在当前渲染就可以出现错误的 UI，而不需要一个 null 的中间态。
 而这个方法的出现，也意味着以后出现错误的时候，修改`state`展现错误时界面的状态应该放在这里去做，而后续收集错误信息之类的放到`componentDidCatch`里面。
+
+> 一个关于 `componentDidCatch` 和 `static getDerivedStateFromError` 的例子
+
+{% codepen tiakia MdzmWJ?editors=0010 light html,css,js,result 465 %}

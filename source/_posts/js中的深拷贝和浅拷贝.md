@@ -1,7 +1,7 @@
 ---
 title: js中的深拷贝和浅拷贝
 tags:
-  - javascript
+  - js
 categories: javascript
 abbrlink: 11339
 date: 2017-10-17 12:36:37
@@ -197,10 +197,12 @@ newObj = {
   friends: ["tmm", "zmm"]
 };
 ```
+
 > 不进行递归，实现深度拷贝
+
 ```javascript
 function deepClone(source) {
-  const root = {};
+  const root = Array.isArray(source) ? [] : {};
   let nodeList = [
     {
       parent: root,
@@ -215,10 +217,14 @@ function deepClone(source) {
       parent = node.parent,
       key = node.key,
       data = node.data;
-    // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+    // 初始化赋值目标，key为undefined时赋值 result = root
+    // 否则 parent中 添加对应的 key,再赋值给 result
     let result = parent;
     if (typeof key !== "undefined") {
-      result = parent[key] = {};
+      // 这里的key 在root（parent）中还不存在
+      // 所以根据data判断要拷贝的是对象还是数组
+      // 然后添加进去
+      result = parent[key] = Array.isArray(data) ? [] : {};
     }
     for (let k in data) {
       if (data.hasOwnProperty(k)) {

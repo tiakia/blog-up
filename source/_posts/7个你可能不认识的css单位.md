@@ -1,12 +1,9 @@
 ---
 title: 7个你可能不认识的css单位
-tags:
-  - css
-categories: css
-description: 解密css单位
 abbrlink: 62362
 date: 2017-09-28 10:18:30
-keywords:
+tags: css
+categories: css
 ---
 
 **注：** [原文链接](https://github.com/simaQ/cssfun/issues/1)
