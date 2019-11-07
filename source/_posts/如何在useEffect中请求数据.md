@@ -24,9 +24,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await ajax(
-        method: 'GET',
-        url: "http://hn.algolia.com/api/v1/search",
-        params: {query: 'redux'}
+        (method: "GET"),
+        (url: "http://hn.algolia.com/api/v1/search"),
+        (params: { query: "redux" })
       );
 
       setData(result.data);
@@ -53,18 +53,18 @@ export default App;
 
 ```javascript
 useEffect(() => {
-    const fetchData = async () => {
-      const result = await ajax(
-        method: 'GET',
-        url: "http://hn.algolia.com/api/v1/search",
-        params: {query: 'redux'}
-      );
+  const fetchData = async () => {
+    const result = await ajax(
+      (method: "GET"),
+      (url: "http://hn.algolia.com/api/v1/search"),
+      (params: { query: "redux" })
+    );
 
-      setData(result.data);
-    };
+    setData(result.data);
+  };
 
-    fetchData();
-  },[]);
+  fetchData();
+}, []);
 ```
 
 ### 如何手动的控制请求
@@ -111,17 +111,20 @@ function App() {
 这样我们可以通过输入框输入内容来手动的控制请求参数了，但是我们发现请求只发生在初始渲染中，我们在输入框修改值的时候，不会发生数据请求，这是因为`effect`依赖参数的问题，虽然请求参数变了，但是 React 在渲染后不会运行`effect`，因为依赖项都是`[]`,我们需要正确的设置依赖项：
 
 ```javascript
-useEffect(() => {
-  const fetchData = async () => {
-    const result = await ajax({
-      method: "GET",
-      url: "http://hn.algolia.com/api/v1/search",
-      params: query
-    });
-    setData(result.data);
-  };
-  fetchData();
-}, [query]);
+useEffect(
+  () => {
+    const fetchData = async () => {
+      const result = await ajax({
+        method: "GET",
+        url: "http://hn.algolia.com/api/v1/search",
+        params: query
+      });
+      setData(result.data);
+    };
+    fetchData();
+  },
+  [query]
+);
 ```
 
 这样后我们在`query`改变后，数据就会重新获取，但是这样也有个问题，`input`的`onChage`事件，只要输入框内容发生变化，就会发生数据请求。我们需要有个开关来控制请求时机。
@@ -134,17 +137,20 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState("redux");
   const [search, setSearch] = useState("redux");
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await ajax({
-        method: "GET",
-        url: "http://hn.algolia.com/api/v1/search",
-        params: search
-      });
-      setData(result.data);
-    };
-    fetchData();
-  }, [search]);
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        const result = await ajax({
+          method: "GET",
+          url: "http://hn.algolia.com/api/v1/search",
+          params: search
+        });
+        setData(result.data);
+      };
+      fetchData();
+    },
+    [search]
+  );
   return (
     <Fragment>
       <input
@@ -180,19 +186,22 @@ function App() {
   const [query, setQuery] = useState("redux");
   const [search, setSearch] = useState("redux");
   const [isLoading, setLoading] = useState(false);
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const result = await ajax({
-        method: "GET",
-        url: "http://hn.algolia.com/api/v1/search",
-        params: search
-      });
-      setData(result.data);
-      setLoading(false);
-    };
-    fetchData();
-  }, [search]);
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        setLoading(true);
+        const result = await ajax({
+          method: "GET",
+          url: "http://hn.algolia.com/api/v1/search",
+          params: search
+        });
+        setData(result.data);
+        setLoading(false);
+      };
+      fetchData();
+    },
+    [search]
+  );
   return (
     <Fragment>
       <input
@@ -233,25 +242,28 @@ function App() {
   const [search, setSearch] = useState("redux");
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setLoading(true);
-      try {
-        const result = await ajax({
-          method: "GET",
-          url: "http://hn.algolia.com/api/v1/search",
-          params: search
-        });
-        setData(result.data);
-      } catch (e) {
-        setIsError(true);
-      }
-      setLoading(false);
-    };
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        setIsError(false);
+        setLoading(true);
+        try {
+          const result = await ajax({
+            method: "GET",
+            url: "http://hn.algolia.com/api/v1/search",
+            params: search
+          });
+          setData(result.data);
+        } catch (e) {
+          setIsError(true);
+        }
+        setLoading(false);
+      };
 
-    fetchData();
-  }, [search]);
+      fetchData();
+    },
+    [search]
+  );
   return (
     <Fragment>
       <input
@@ -385,19 +397,22 @@ function useFecth() {
   }
   const [state, dispatch] = useRecuder(fetchReducer, intialState);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: "FETCH_INIT" });
-      try {
-        const result = await axios(url);
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
-      } catch (error) {
-        dispatch({ type: "FETCH_FAILURE" });
-      }
-    };
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        dispatch({ type: "FETCH_INIT" });
+        try {
+          const result = await axios(url);
+          dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        } catch (error) {
+          dispatch({ type: "FETCH_FAILURE" });
+        }
+      };
 
-    fetchData();
-  }, [search]);
+      fetchData();
+    },
+    [search]
+  );
 
   handleFetch = query => {
     setSearch(query);
@@ -470,25 +485,28 @@ function useFecth() {
   }
   const [state, dispatch] = useRecuder(fetchReducer, intialState);
 
-  useEffect(() => {
-    let didCancel = false;
-    const fetchData = async () => {
-      dispatch({ type: "FETCH_INIT" });
-      try {
-        const result = await axios(url);
-        if (!didCancel) {
-          dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+  useEffect(
+    () => {
+      let didCancel = false;
+      const fetchData = async () => {
+        dispatch({ type: "FETCH_INIT" });
+        try {
+          const result = await axios(url);
+          if (!didCancel) {
+            dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+          }
+        } catch (error) {
+          if (!didCancel) {
+            dispatch({ type: "FETCH_FAILURE" });
+          }
         }
-      } catch (error) {
-        if (!didCancel) {
-          dispatch({ type: "FETCH_FAILURE" });
-        }
-      }
-    };
+      };
 
-    fetchData();
-    return () => (didCancel = true);
-  }, [search]);
+      fetchData();
+      return () => (didCancel = true);
+    },
+    [search]
+  );
 
   handleFetch = query => {
     setSearch(query);
@@ -506,3 +524,5 @@ function useFecth() {
 `didCancel`在`effect`新的渲染完成后，会执行变为`true`，这个操作是防止异步获取数据的时候，在页面更新后，上一次请求的数据才接到，影响当前页面的显示。
 
 > 实际上并没有中止数据获取（不过可以通过 Axios 取消来实现），但是不再为卸载的组件执行状态转换
+
+[具体的取消请求的方法，请看这里](http://www.tiankai.party/posts/17294/)

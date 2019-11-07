@@ -3,6 +3,7 @@ title: axios封装笔记
 abbrlink: 48591
 date: 2019-01-30 14:50:37
 tags: axios,http
+categories: http
 ---
 
 在写 react-redux-app 脚手架的时候就已经封装好了，一直没记录，后来在使用过程中又参考了`antd-design-pro`的报错机制，重新封装了一下，这里记录一下封装的代码，以免遗失
