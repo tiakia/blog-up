@@ -2,8 +2,8 @@
 title: TypeScript中的声明文件
 abbrlink: 61798
 date: 2019-9-25 19:03:12
-tags: ts
-categories: typescrit
+tags: ["ts", "声明文件"]
+categories: typeScript
 ---
 
 在写`Typescript`的时候老是会碰到这样的错误：
