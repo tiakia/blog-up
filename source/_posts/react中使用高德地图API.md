@@ -272,6 +272,7 @@ showInfo = item => {
   return infoWindow;
 };
 ```
+![amap-react-3](/../images/amap-react-3.png)
 
 css 部分
 
@@ -364,4 +365,4 @@ div.info-bottom a {
 }
 ```
 
-![amap-react-3](/../images/amap-react-3.png)
+

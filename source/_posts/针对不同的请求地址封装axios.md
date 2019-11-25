@@ -97,16 +97,43 @@ export const config = {
 const CancelToken = axios.CancelToken;
 // 存放每个请求url和对应的取消函数
 let pending: Array<{ url: any; c: any; method: any }> = [];
-// 取消函数 调用方式 传入请求的路径 cancel('/getData')
+// 取消函数 调用方式 传入请求的路径 cancel(['/getData'])
+// 请求路径不能带参数 不是这种的：
+/*
+*   return request({
+    method: 'DELETE',
+    url: `/areaInfo/${params || ''}`,
+  });
+* */
+// 应该是这样的：
+/*
+*   return request({
+    method: 'DELETE',
+    url: `/areaInfo`,
+    params
+  });
+* */
+// 这样传入cancel(['/areaInfo']) 才会取消这个接口的请求
+// 或者可以这样传入参数 cancel(['/areaInfo/params'])
 export function cancel(url: Array<string>) {
+  console.log(pending, url);
   pending.length > 0 &&
     pending.forEach((item: any, idx: any) => {
       // 处理这种情况 branch/treeBranch?
-      if (url.find(val => val.split("?")[0] === item.url)) {
+      if (url.find(val => val === item.url.split('?')[0])) {
         // 执行取消函数
-        item.c("method: " + item.method + " url: " + item.url);
+        item.c('method: ' + item.method + ' url: ' + item.url);
         // 移除这个请求
         pending.splice(idx, 1);
+      } else if (url.includes('params')) {
+        // 处理这种情况 /areaInfo/12354 但是这种情况传入的参数应该这样 cancel('/areaInfo/params');
+        if (
+          url.find(val => val.split('/params')[0] === item.url.slice(0, item.url.lastIndexOf('/')))
+        ) {
+          item.c('method: ' + item.method + ' url: ' + item.url);
+          // 移除这个请求
+          pending.splice(idx, 1);
+        }
       }
     });
 }
@@ -207,17 +234,43 @@ import router from "umi/router";
 const CancelToken = axios.CancelToken;
 // 存放每个请求url和对应的取消函数
 let pending: Array<{ url: any; c: any; method: any }> = [];
-// 取消函数 调用方式 传入请求的路径 cancel('/getData')
+// 取消函数 调用方式 传入请求的路径 cancel(['/getData'])
+// 请求路径不能带参数 不是这种的：
+/*
+*   return request({
+    method: 'DELETE',
+    url: `/areaInfo/${params || ''}`,
+  });
+* */
+// 应该是这样的：
+/*
+*   return request({
+    method: 'DELETE',
+    url: `/areaInfo`,
+    params
+  });
+* */
+// 这样传入cancel(['/areaInfo']) 才会取消这个接口的请求
+// 或者可以这样传入参数 cancel(['/areaInfo/params'])
 export function cancel(url: Array<string>) {
   console.log(pending, url);
   pending.length > 0 &&
     pending.forEach((item: any, idx: any) => {
       // 处理这种情况 branch/treeBranch?
-      if (url.find(val => val.split("?")[0] === item.url)) {
+      if (url.find(val => val === item.url.split('?')[0])) {
         // 执行取消函数
-        item.c("method: " + item.method + " url: " + item.url);
+        item.c('method: ' + item.method + ' url: ' + item.url);
         // 移除这个请求
         pending.splice(idx, 1);
+      } else if (url.includes('params')) {
+        // 处理这种情况 /areaInfo/12354 但是这种情况传入的参数应该这样 cancel('/areaInfo/params');
+        if (
+          url.find(val => val.split('/params')[0] === item.url.slice(0, item.url.lastIndexOf('/')))
+        ) {
+          item.c('method: ' + item.method + ' url: ' + item.url);
+          // 移除这个请求
+          pending.splice(idx, 1);
+        }
       }
     });
 }

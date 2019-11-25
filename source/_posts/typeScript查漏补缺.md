@@ -394,6 +394,31 @@ function handleValue(val: All) {
 但是假如后来有一天你的同事改了 All 的类型：`type All = Foo | Bar | Baz` 然而他忘记了在 `handleValue` 里面加上针对 `Baz` 的处理逻辑，
 这个时候在 `default branch` 里面 `val` 会被收窄为 `Baz`，导致无法赋值给 `never`，产生一个编译错误。所以通过这个办法，你可以确保 `handleValue` 总是穷尽 (exhaust) 了所有 All 的可能类型。
 
+##  非空断言操作
+
+```javascript
+X.getY()!.a()
+```
+
+这个操作是什么意思？ 它是告诉编译器`X.getY()`不是`Nulll`;
+
+类似的：
+
+```javascript
+<div
+        style={{
+          width: '100%',
+          height: document.documentElement!.clientHeight,
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <ActivityIndicator size="large" animating={effects['mobileMapModel/fetchBranchTreeList']} />
+</div>
+```
+
+
+
 > 参考链接
 
 - [Typescript 中的 interface 和 type 到底有什么区别详解](https://www.jb51.net/article/163299.htm)
