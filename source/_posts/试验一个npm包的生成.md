@@ -34,8 +34,8 @@ module.exports = {
     ```
     - 使用
     ```javascript
-    import hello from '<package-name>';
-    hello();
+    import { message } from '<package-name>';
+    message(); // This is my first npm package
     ```
 ## tk-one包
 如果是全局包的话有点不一样。需要在`package.json`中指定一个`bin`字段用于暴露全局使用的命令：

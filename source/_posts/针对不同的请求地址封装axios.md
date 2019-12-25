@@ -297,17 +297,18 @@ function checkStatus(response) {
   if (!response) {
     throw new Error("response is undefined");
   }
-  if (
-    (response.status >= 200 && response.status < 300) ||
-    response.code !== "9998"
-  ) {
-    // notification.success({
-    //   message: response.msg,
-    // });
-    return response;
+  if (response.status >= 200 && response.status < 300 ) {
+    if(response.code === '0000') {
+        return response;
+    } else if(response.code === '9999') {
+        const error = new Error();
+        error.name = response.status;
+        error.text = 'token过期';
+        throw error;
+    }
   }
   const errorText = codeMessage[response.status] || response.statusText;
-  const error = new Error(errorText);
+  const error = new Error();
   error.name = response.status;
   // @ts-ignore
   error.response = response;
@@ -393,6 +394,7 @@ instance.interceptors.response.use(
   response => {
     // Do something with response data
     // 在这里你可以判断后台返回数据携带的请求码
+    // 如果是 0000 返回 否则不返回并处理错误
     // console.dir(response);
     return checkStatus(response);
   },
